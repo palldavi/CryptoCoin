@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A1B2C3D4-1111-2222-3333-444455556678}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>
+    </RootNamespace>
+    <AssemblyName>CryptoCoin.Tests</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <OptionStrict>On</OptionStrict>
+    <OptionExplicit>On</OptionExplicit>
+    <LangVersion>15.5</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <RemoveIntegerChecks>true</RemoveIntegerChecks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <RemoveIntegerChecks>true</RemoveIntegerChecks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+      <HintPath>$(VS140COMNTOOLS)..\IDE\PublicAssemblies\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite, Version=1.0.118.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\SQLite\System.Data.SQLite.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CryptoCoin.Cryptography\CryptoCoin.Cryptography.vbproj">
+      <Project>{A1B2C3D4-1111-2222-3333-444455556667}</Project>
+      <Name>CryptoCoin.Cryptography</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CryptoCoin.Core\CryptoCoin.Core.vbproj">
+      <Project>{A1B2C3D4-1111-2222-3333-444455556666}</Project>
+      <Name>CryptoCoin.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CryptoCoin.Transactions\CryptoCoin.Transactions.vbproj">
+      <Project>{A1B2C3D4-1111-2222-3333-444455556669}</Project>
+      <Name>CryptoCoin.Transactions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CryptoCoin.Mining\CryptoCoin.Mining.vbproj">
+      <Project>{A1B2C3D4-1111-2222-3333-444455556671}</Project>
+      <Name>CryptoCoin.Mining</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CryptoCoin.Wallet\CryptoCoin.Wallet.vbproj">
+      <Project>{A1B2C3D4-1111-2222-3333-444455556672}</Project>
+      <Name>CryptoCoin.Wallet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CryptoCoin.Persistence\CryptoCoin.Persistence.vbproj">
+      <Project>{B2C3D4E5-2222-3333-4444-555566667777}</Project>
+      <Name>CryptoCoin.Persistence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CryptoCoin.Services\CryptoCoin.Services.vbproj">
+      <Project>{C3D4E5F6-3333-4444-5555-666677778888}</Project>
+      <Name>CryptoCoin.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\BlockchainInjectionTests.vb" />
+    <Compile Include="Cryptography\HashUtilTests.vb" />
+    <Compile Include="Cryptography\Base58Tests.vb" />
+    <Compile Include="Cryptography\KeyPairTests.vb" />
+    <Compile Include="Cryptography\EcdsaTests.vb" />
+    <Compile Include="Cryptography\AddressTests.vb" />
+    <Compile Include="Cryptography\MerkleTreeTests.vb" />
+    <Compile Include="Cryptography\MnemonicTests.vb" />
+    <Compile Include="Cryptography\HdKeyTests.vb" />
+    <Compile Include="Core\BlockHeaderTests.vb" />
+    <Compile Include="Core\BlockchainTests.vb" />
+    <Compile Include="Core\DifficultyTests.vb" />
+    <Compile Include="Core\ConsensusRulesTests.vb" />
+    <Compile Include="Transactions\TransactionTests.vb" />
+    <Compile Include="Transactions\UtxoSetTests.vb" />
+    <Compile Include="Transactions\MempoolTests.vb" />
+    <Compile Include="Transactions\ScriptTests.vb" />
+    <Compile Include="Transactions\CoinSelectionTests.vb" />
+    <Compile Include="Mining\MinerTests.vb" />
+    <Compile Include="Wallet\WalletManagerTests.vb" />
+    <Compile Include="Wallet\KeyStoreTests.vb" />
+    <Compile Include="TestHelpers.vb" />
+    <Compile Include="Persistence\SqliteBlockStoreTests.vb" />
+    <Compile Include="Persistence\SqliteChainStateTests.vb" />
+    <Compile Include="Services\BlockchainServiceTests.vb" />
+    <Compile Include="Services\ApiKeyHeaderTests.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="My Project\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- Copy SQLite native interop DLLs so Persistence tests can run -->
+  <Target Name="CopySQLiteInteropForTests" AfterTargets="Build">
+    <PropertyGroup>
+      <_SQLiteLib>..\..\lib\SQLite</_SQLiteLib>
+    </PropertyGroup>
+    <Copy SourceFiles="$(_SQLiteLib)\x64\SQLite.Interop.dll" DestinationFolder="$(OutputPath)"     SkipUnchangedFiles="true" />
+    <Copy SourceFiles="$(_SQLiteLib)\x64\SQLite.Interop.dll" DestinationFolder="$(OutputPath)x64\" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="$(_SQLiteLib)\x86\SQLite.Interop.dll" DestinationFolder="$(OutputPath)x86\" SkipUnchangedFiles="true" />
+  </Target>
+</Project>

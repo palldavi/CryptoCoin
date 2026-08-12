@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"
+          Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C3D4E5F6-3333-4444-5555-666677778888}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>
+    </RootNamespace>
+    <AssemblyName>CryptoCoin.Services</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <OptionStrict>Off</OptionStrict>
+    <OptionExplicit>On</OptionExplicit>
+    <LangVersion>15.5</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CryptoCoin.Cryptography\CryptoCoin.Cryptography.vbproj">
+      <Project>{A1B2C3D4-1111-2222-3333-444455556667}</Project>
+      <Name>CryptoCoin.Cryptography</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CryptoCoin.Core\CryptoCoin.Core.vbproj">
+      <Project>{A1B2C3D4-1111-2222-3333-444455556666}</Project>
+      <Name>CryptoCoin.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CryptoCoin.Transactions\CryptoCoin.Transactions.vbproj">
+      <Project>{A1B2C3D4-1111-2222-3333-444455556669}</Project>
+      <Name>CryptoCoin.Transactions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contracts\IBlockchainService.vb" />
+    <Compile Include="Contracts\IWalletService.vb" />
+    <Compile Include="DataContracts\BlockData.vb" />
+    <Compile Include="DataContracts\NetworkData.vb" />
+    <Compile Include="DataContracts\MempoolData.vb" />
+    <Compile Include="DataContracts\WalletData.vb" />
+    <Compile Include="Security\ApiKeyHeader.vb" />
+    <Compile Include="Security\ApiKeyClientInspector.vb" />
+    <Compile Include="Security\ApiKeyServiceInspector.vb" />
+    <Compile Include="Implementations\BlockchainServiceImpl.vb" />
+    <Compile Include="Implementations\WalletServiceImpl.vb" />
+    <Compile Include="Host\NodeServiceHost.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="My Project\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>

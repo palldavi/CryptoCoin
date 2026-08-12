@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A1B2C3D4-1111-2222-3333-444455556670}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <ExcludeFromBuild>true</ExcludeFromBuild>
+    <RootNamespace>
+    </RootNamespace>
+    <AssemblyName>CryptoCoin.Node</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <OptionStrict>Off</OptionStrict>
+    <OptionExplicit>On</OptionExplicit>
+    <LangVersion>15.5</LangVersion>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="log4net">
+      <HintPath>..\..\packages\log4net.2.0.15\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\packages\Castle.Core.4.4.1\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\packages\Castle.Windsor.5.1.2\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
+      <HintPath>..\..\packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging">
+      <HintPath>..\..\packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CryptoCoin.Cryptography\CryptoCoin.Cryptography.vbproj">
+      <Project>{A1B2C3D4-1111-2222-3333-444455556667}</Project>
+      <Name>CryptoCoin.Cryptography</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CryptoCoin.Core\CryptoCoin.Core.vbproj">
+      <Project>{A1B2C3D4-1111-2222-3333-444455556666}</Project>
+      <Name>CryptoCoin.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CryptoCoin.Transactions\CryptoCoin.Transactions.vbproj">
+      <Project>{A1B2C3D4-1111-2222-3333-444455556669}</Project>
+      <Name>CryptoCoin.Transactions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CryptoCoin.Networking\CryptoCoin.Networking.vbproj">
+      <Project>{A1B2C3D4-1111-2222-3333-444455556668}</Project>
+      <Name>CryptoCoin.Networking</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CryptoCoin.Mining\CryptoCoin.Mining.vbproj">
+      <Project>{A1B2C3D4-1111-2222-3333-444455556671}</Project>
+      <Name>CryptoCoin.Mining</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CryptoCoin.Explorer\CryptoCoin.Explorer.vbproj">
+      <Project>{A1B2C3D4-1111-2222-3333-444455556674}</Project>
+      <Name>CryptoCoin.Explorer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CryptoCoin.Persistence\CryptoCoin.Persistence.vbproj">
+      <Project>{B2C3D4E5-2222-3333-4444-555566667777}</Project>
+      <Name>CryptoCoin.Persistence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CryptoCoin.Services\CryptoCoin.Services.vbproj">
+      <Project>{C3D4E5F6-3333-4444-5555-666677778888}</Project>
+      <Name>CryptoCoin.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CryptoCoin.Wallet\CryptoCoin.Wallet.vbproj">
+      <Project>{A1B2C3D4-1111-2222-3333-444455556672}</Project>
+      <Name>CryptoCoin.Wallet</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.vb" />
+    <Compile Include="NodeService.vb" />
+    <Compile Include="RpcServer.vb" />
+    <Compile Include="RpcHandler.vb" />
+    <Compile Include="SyncManager.vb" />
+    <Compile Include="NodeConfig.vb" />
+    <Compile Include="BlockProcessor.vb" />
+    <Compile Include="Logging\NodeLogger.vb" />
+    <Compile Include="Container\NodeContainer.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="My Project\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- Copy SQLite native interop DLLs to output directory -->
+  <Target Name="CopySQLiteInterop" AfterTargets="Build">
+    <PropertyGroup>
+      <_SQLiteLib>..\..\lib\SQLite</_SQLiteLib>
+    </PropertyGroup>
+    <Copy SourceFiles="$(_SQLiteLib)\x64\SQLite.Interop.dll" DestinationFolder="$(OutputPath)" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="$(_SQLiteLib)\x64\SQLite.Interop.dll" DestinationFolder="$(OutputPath)x64\" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="$(_SQLiteLib)\x86\SQLite.Interop.dll" DestinationFolder="$(OutputPath)x86\" SkipUnchangedFiles="true" />
+  </Target>
+</Project>
