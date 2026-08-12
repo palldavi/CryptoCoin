@@ -2,6 +2,9 @@
 
 A full-stack cryptocurrency implementation in **VB.NET / .NET Framework 4.8**. CryptoCoin is an imaginary coin (ticker: **CRC**) built to demonstrate how a real cryptocurrency works end-to-end — from elliptic curve cryptography and proof-of-work mining through to a wallet CLI, block explorer API, smart contract VM, WCF services, and SQLite persistence.
 
+Modernize this solution to .NET 10 with AWS Transform:
+[Modernize .NET with the AWS Transform conversational AI assistant for Visual Studio](https://aws.amazon.com/blogs/dotnet/introducing-the-aws-transform-conversational-ai-assistant-for-visual-studio/)
+
 > **This is an educational/demonstration project.** CRC has no real-world value.
 
 ---
